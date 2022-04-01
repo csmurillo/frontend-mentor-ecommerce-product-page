@@ -1,0 +1,6 @@
+.slickPrev:before{
+    content:'';
+}
+.nocontent{
+    content:'' !important;
+}
