@@ -3,52 +3,52 @@ import react from "react";
 const AddToCartManager = ()=>{
 
     const addToCart = (name, price, quantity)=>{
-        const cartItem=localStorage.getItem('cart');
+        const cart=JSON.parse(localStorage.getItem('cart'));
         // if cart is empty
-        if(cartItem==null){
-            localStorage.setItem('cart',JSON.stringify([{key:name,itemInfo:{name,price,quantity}}]));
+        if(cart==null){
+            localStorage.setItem('cart',JSON.stringify([{name,price,quantity}]));
         }
         else{
-            // console.log(typeof cartItem);
-            // console.log(JSON.parse(cartItem));
-            var cartMap = new Map(JSON.parse(cartItem).map(i => [i.key, i.itemInfo]));
-            console.log(cartMap.get(''+name));
-            console.log(cartMap);
-            console.log('---------------!!!');
-            // if item does not exist in cart
-            if(cartMap.get(name)==null){
-                let cartArr = Array.from(cartMap, ([key, itemInfo]) => ({ key, itemInfo }));
-                cartArr.push({key:name,itemInfo:{name,price,quantity}});
-                localStorage.setItem('cart',JSON.stringify(cartArr));
+            const item = cart.find(item => item.name==name);
+            // item does not exist
+            if(item==undefined){
+                cart.push({name,price,quantity});
+                localStorage.setItem('cart',JSON.stringify(cart));
             }
-            // if item exist in the cart just add quanitity
+            // item exist add quantity
             else{
-                // console.log('exist in the cart');
-                const item=cartMap.get(''+name);
-                // console.log(item.quantity);
-                const newQuantity=parseInt(item.quantity)+parseInt(quantity);
-                // console.log(parseInt(quantity)+':'+parseInt(item.quantity));
-                cartMap.set(name,{name,price,quantity:newQuantity});
-
-                console.log('-----!');
-                console.log(cartMap.get(''+name));
-                
-                console.log(cartMap);
-                console.log('-----!');
-                let cartArr = Array.from(cartMap, ([key, itemInfo]) => ({ key, itemInfo }));
-                localStorage.setItem('cart',JSON.stringify(cartArr));
-                // console.log(cartItem);
+                let newCart=cart.map(item=>{
+                    if(item.name==name){
+                        let newQuantity=parseInt(quantity)+parseInt(item.quantity);
+                        return {name, price, quantity:newQuantity};
+                    }
+                    return item;
+                });
+                localStorage.setItem('cart',JSON.stringify(newCart));
             }
-            // console.log(cartMap.get(''+name));
-            // console.log('-----');
-            // console.log(cartMap);
-            // console.log(cartItem);
         }
-
     };
-
+    const removeFromCart = (name)=>{
+        console.log(name);
+        const cart=JSON.parse(localStorage.getItem('cart'));
+        console.log(cart);
+        console.log('!!!!!!!!!!!!!!!!!!!!');
+        const newCart=cart.filter(item=>{
+            console.log(item.name+'and'+name);
+            if(item.name!=name){
+                console.log(item.name+'and'+name);
+                return item;
+            }
+            return null;
+        });
+        console.log(cart);
+        localStorage.setItem('cart',JSON.stringify(newCart));
+    };
     return {
-        addToCart
+        addToCart,removeFromCart
     };
 };
 export default AddToCartManager;
+
+
+

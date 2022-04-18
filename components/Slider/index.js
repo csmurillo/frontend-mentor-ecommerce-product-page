@@ -16,6 +16,7 @@ const SlickSlider = ({type}) =>{
             slickSliderRef.current.slickGoTo(sliderPos+1);
         };
         const nextImage=()=>{
+            console.log('next image is being');
             if(currentSlide==3){
                 setCurrentSlide(0);
             }
@@ -36,6 +37,7 @@ const SlickSlider = ({type}) =>{
         },[currentSlide]);
 
         if(type=='desktop'){
+            console.log('desktop');
             var settings = {
                 dots: false,
                 infinite: true,
@@ -46,7 +48,8 @@ const SlickSlider = ({type}) =>{
                 nextArrow: <NextArrow />
               };
           }
-          else if(type='mobile'){
+          else if(type=='mobile'){
+            console.log('mobile from where');
             var settings = {
                 dots: false,
                 infinite: true,
@@ -58,6 +61,7 @@ const SlickSlider = ({type}) =>{
               };
           }
           else if(type=='modal'){
+              console.log('modal!!!!!!!');
             var settings = {
                 dots: false,
                 infinite: true,
@@ -72,8 +76,7 @@ const SlickSlider = ({type}) =>{
         function PrevArrow(props) {
             const { className, style, onClick } = props;
             return (
-                <div className='absolute z-50 p-3 pr-4 top-[40%] left-[4%] border-2 rounded-[50%] 
-                                flex justify-center items-center hover:cursor-pointer bg-white' 
+                <div className={((type=='modal')?'top-[40%] -left-[5%] ':'top-[40%] left-[4%] ')+'absolute z-50 p-3 pr-4 border-2 rounded-[50%] flex justify-center items-center hover:cursor-pointer bg-white ' }
                                 onClick={()=>{prevImage(); slickSliderRef.current.slickGoTo(currentSlide); }}>
                     <Image src='/images/icon-previous.svg' width={14} height={15}/>
                 </div>
@@ -82,70 +85,71 @@ const SlickSlider = ({type}) =>{
           function NextArrow(props) {
             const { className, style, onClick } = props;
             return (
-            <div className='absolute z-50 p-3 pl-4 top-[40%] right-[4%] border-2 rounded-[50%]
-                             flex justify-center items-center hover:cursor-pointer bg-white' onClick={()=>{
-                             nextImage(); slickSliderRef.current.slickGoTo(currentSlide);}}>
+            <div className={((type=='modal')?'top-[40%] -right-[5%] ':'top-[40%] right-[4%] ')+'absolute z-50 p-3 pl-4  border-2 rounded-[50%] flex justify-center items-center hover:cursor-pointer bg-white'}
+                            onClick={()=>{ nextImage(); slickSliderRef.current.slickGoTo(currentSlide);}}>
                   <Image src='/images/icon-next.svg' width={14} height={15}/>
               </div>
             );
           }
 
           return (
-            <div>
-                <Slider ref={slickSliderRef} className="relative w-full md:w-[320px]" {...settings} 
-                        afterChange={(i)=>{onSwipeEnd(i);}}
-                >
-                    <div className="border">
-                        <div className='relative w-full md:w-[320px] h-80 '>
-                            <Image src="/images/image-product-1.jpg" layout="fill"/>
-                        </div>
-                    </div>
+            <div className="xl:w-[80%]">
                     <div>
-                        <div className='relative w-full md:w-[320px] h-80 '>
-                            <Image src="/images/image-product-2.jpg" layout="fill"/>
-                        </div>
-                    </div>
-                    <div>
-                        <div className='relative w-full md:w-[320px] h-80 '>
-                            <Image src="/images/image-product-3.jpg" layout="fill"/>
-                        </div>
-                    </div>
-                    <div>
-                        <div className='relative w-full md:w-[320px] h-80 '>
-                            <Image src="/images/image-product-4.jpg" layout="fill"/>
-                        </div>
-                    </div>
-                </Slider>
-                <div>
-                {
-                    type!='mobile' && (
-                        <div className="hidden md:inline-block relative border">
-                            <div className="flex">
-                                <div>
-                                    <div className={"relative w-20 h-20 hover:cursor-pointer "+(currentSlide==0?'border-4 border-black':'')} onClick={()=>{switchToImageIndex(0)}}>
-                                        <Image src="/images/image-product-1.jpg" layout="fill"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className={"relative w-20 h-20 hover:cursor-pointer "+(currentSlide==1?'border-4 border-black':'')} onClick={()=>{switchToImageIndex(1)}}>
-                                        <Image src="/images/image-product-2.jpg" layout="fill"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className={"relative w-20 h-20 hover:cursor-pointer "+(currentSlide==2?'border-4 border-black':'')} onClick={()=>{switchToImageIndex(2)}}>
-                                        <Image src="/images/image-product-3.jpg" layout="fill"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className={"relative w-20 h-20 hover:cursor-pointer "+(currentSlide==3?'border-4 border-black':'')} onClick={()=>{switchToImageIndex(3)}}>
-                                        <Image src="/images/image-product-4.jpg" layout="fill"/>
-                                    </div>
+                        <Slider ref={slickSliderRef} className="relative w-full md:w-[100%]" {...settings} 
+                                afterChange={(i)=>{onSwipeEnd(i);}}
+                        >
+                            <div className="border">
+                                <div className='relative w-full md:w-[100%] h-96 '>
+                                    <Image src="/images/image-product-1.jpg" layout="fill"/>
                                 </div>
                             </div>
-                        </div>
-                    )
-                }
-            </div>
+                            <div>
+                                <div className='relative w-full md:w-[100%] h-96 '>
+                                    <Image src="/images/image-product-2.jpg" layout="fill"/>
+                                </div>
+                            </div>
+                            <div>
+                                <div className='relative w-full md:w-[100%] h-96 '>
+                                    <Image src="/images/image-product-3.jpg" layout="fill"/>
+                                </div>
+                            </div>
+                            <div>
+                                <div className='relative w-full md:w-[100%] h-96 '>
+                                    <Image src="/images/image-product-4.jpg" layout="fill"/>
+                                </div>
+                            </div>
+                        </Slider>
+                    </div>
+                    <div>
+                        {
+                            type!='mobile' && (
+                                <div className="hidden md:inline-block relative border w-[100%]">
+                                    <div className="flex w-full gap-4">
+                                        <div className="w-[25%] group">
+                                            <div className={"relative w-[100%] h-20 hover:cursor-pointer rounded-lg "+(currentSlide==0?'border-4 border-orange':'')} onClick={()=>{switchToImageIndex(0)}}>
+                                                <Image className={"rounded-sm group-hover:opacity-50 "+(currentSlide==0?'opacity-50':'')} src="/images/image-product-1-thumbnail.jpg" layout="fill"/>
+                                            </div>
+                                        </div>
+                                        <div className="w-[25%] group">
+                                            <div className={"relative w-[100%] h-20 hover:cursor-pointer rounded-lg "+(currentSlide==1?'border-4 border-orange':'')} onClick={()=>{switchToImageIndex(1)}}>
+                                                <Image className={"rounded-sm group-hover:opacity-50 "+(currentSlide==1?'opacity-50':'')} src="/images/image-product-2-thumbnail.jpg" layout="fill"/>
+                                            </div>
+                                        </div>
+                                        <div className="w-[25%] group">
+                                            <div className={"relative w-[100%] h-20 hover:cursor-pointer rounded-lg "+(currentSlide==2?'border-4 border-orange':'')} onClick={()=>{switchToImageIndex(2)}}>
+                                                <Image className={"rounded-sm group-hover:opacity-50 "+(currentSlide==2?'opacity-50':'')} src="/images/image-product-3-thumbnail.jpg" layout="fill"/>
+                                            </div>
+                                        </div>
+                                        <div className="w-[25%] group">
+                                            <div className={"relative w-[100%] h-20 hover:cursor-pointer rounded-lg "+(currentSlide==3?'border-4 border-orange':'')} onClick={()=>{switchToImageIndex(3)}}>
+                                                <Image className={"rounded-sm group-hover:opacity-50 "+(currentSlide==3?'opacity-50':'')} src="/images/image-product-4-thumbnail.jpg" layout="fill"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }     
+                    </div>
             </div>
           );
     

@@ -1,0 +1,10 @@
+button:hover .prevIcon path{
+    stroke: #FF7E1B;
+}
+
+button:hover .nextIcon path{
+    stroke: #FF7E1B;
+}
+.closeIcon:hover path{
+    fill:#FF7E1B;
+}

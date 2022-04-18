@@ -10,7 +10,7 @@ const Menu = ({closeMenu})=>{
             <div className="absolute min-h-full w-72 bg-white z-[99999]">
                 <div className='p-5'>
                     <div className='mb-14'>
-                        <CloseIcon className={styles.closeIcon} onClick={closeMenu}/>
+                        <CloseIcon className={styles.closeIcon+' hover:cursor-pointer'} onClick={closeMenu}/>
                     </div>
                     <ul className='text-black font-bold font-kumbh text-xl'>
                         <li className='mb-4'>Collections</li>
