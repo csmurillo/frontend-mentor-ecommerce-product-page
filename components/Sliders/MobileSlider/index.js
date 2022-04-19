@@ -67,22 +67,22 @@ const MobileSlider = ({type}) =>{
                                 afterChange={(i)=>{onSwipeEnd(i);}}
                         >
                             <div className="border">
-                                <div className='relative w-full h-96 '>
+                                <div className='relative w-full h-80 '>
                                     <Image src="/images/image-product-1.jpg" layout="fill"/>
                                 </div>
                             </div>
                             <div>
-                                <div className='relative w-full h-96 '>
+                                <div className='relative w-full h-80 '>
                                     <Image src="/images/image-product-2.jpg" layout="fill"/>
                                 </div>
                             </div>
                             <div>
-                                <div className='relative w-full h-96 '>
+                                <div className='relative w-full h-80 '>
                                     <Image src="/images/image-product-3.jpg" layout="fill"/>
                                 </div>
                             </div>
                             <div>
-                                <div className='relative w-full h-96 '>
+                                <div className='relative w-full h-80 '>
                                     <Image src="/images/image-product-4.jpg" layout="fill"/>
                                 </div>
                             </div>

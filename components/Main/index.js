@@ -30,7 +30,7 @@ const Main = ()=>{
         <>
             {/* slider modal */}
             {modal&&<ModalSlider closeModal={closeModal}/>}
-            <main className={styles.xlGrid+' flex-1 xl:pb-32 xl:px-10'}>
+            <main className={styles.xlGrid+' flex-1 xl:pb-32 xl:pt-20 xl:px-10'}>
                 {/* <SlickSlider/> */}
                 <div className={styles.xlShoe}>
                     <div className='block md:hidden'>
@@ -41,12 +41,12 @@ const Main = ()=>{
                     </div>
                 </div>
                 <div className={styles.xlShoeDetails+' flex items-center'}>
-                    <section className='py-3 px-5'>
-                        <div className='mb-6'>
+                    <section className='xl:py-3 xl:px-5 pb-20 pt-6 px-6'>
+                        <div className='xs:mb-6 mb-4'>
                             <h2 className='text-sm tracking-wide font-kumbh font-bold uppercase text-[#FF7E1B] opacity-80 leading-4'>Sneaker Company</h2>
                         </div>
                         <div className='mb-5'>
-                            <h1 className='text-5xl font-kumbh font-bold'>{name}</h1>
+                            <h1 className='md:text-5xl text-3xl font-kumbh font-bold'>{name}</h1>
                         </div>
                         <div className='mb-5'>
                             <p className='text-darkGrayBlue leading-7 text-base	font-kumbh font-normal'>

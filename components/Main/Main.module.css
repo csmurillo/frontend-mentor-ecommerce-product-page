@@ -1,4 +1,4 @@
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
     .xlGrid{
         display: grid;
         grid-template-columns: 50% 50%;

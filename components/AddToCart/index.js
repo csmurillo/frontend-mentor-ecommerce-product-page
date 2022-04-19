@@ -38,7 +38,7 @@ const AddToCart = ({itemInfo})=>{
     return (
         <form onSubmit={submitAddToCart} className='xl:flex xl:justify-between'>
             <div className="xl:w-[40%]">
-                <div className='bg-lightGrayBlue flex mb-4 xl:h-full rounded-lg'>
+                <div className='bg-lightGrayBlue flex mb-4 xl:h-full rounded-lg py-4 xl:py-0'>
                     <div className="flex justify-center items-center w-12">
                         <button type="button" className="p-0 m-0 h-[10px] leading-[0rem] overflow-hidden text-4xl font-bold flex items-start text-orange hover:text-opacity-70" onClick={()=>{subtractQuanity()}}>
                             -

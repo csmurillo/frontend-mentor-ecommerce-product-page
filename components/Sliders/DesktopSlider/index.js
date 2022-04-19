@@ -48,11 +48,11 @@ const DesktopSlider = ({openModal}) =>{
 
           return (
             <div className="xl:w-[80%]">
-                    <div>
+                    <div className="mb-8">
                         <Slider ref={slickSliderRef} className="relative w-full md:w-[100%]" {...settings} 
                                 afterChange={(i)=>{onSwipeEnd(i);}}
                         >
-                            <div className="border">
+                            <div>
                                 <div className='relative w-full md:w-[100%] h-96 hover:cursor-pointer'>
                                     <Image src="/images/image-product-1.jpg" layout="fill" onClick={openModal}/>
                                 </div>

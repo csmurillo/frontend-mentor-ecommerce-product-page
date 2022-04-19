@@ -59,12 +59,12 @@ const Header=()=> {
 
   return (
       <>
-        <header className='flex py-7 justify-between xl:border-b-2 mb-20'>
+        <header className='flex xs:py-7 justify-between lg:border-b-2 md:px-0 py-5 px-6 xs:mx-0'>
             <div className='flex items-center'>
-                <div className='mr-3 flex items-center xl:hidden'>
+                <div className='mr-3 xl:hidden mt-1'>
                     <MenuIcon className='hover:cursor-pointer' onClick={openMenu}  />
                 </div>
-                <div className='md:mr-10'>
+                <div className=' md:mr-10'>
                     <Logo />
                 </div>
                 <div className='hidden xl:block'>
@@ -89,11 +89,15 @@ const Header=()=> {
             </div>
             <div className='flex'>
                 <div className='relative flex items-center mr-8 group' onClick={toggleCartModal}>
-                    <div className='absolute -right-3 top-2 bg-orange text-white text-xs px-2 rounded-full font-bold group-hover:cursor-pointer'>{numCartItems}</div>
+                    {
+                        numCartItems!=0?
+                        <div className='absolute lg:-right-3 lg:top-1 -right-4 -top-2 bg-orange text-white text-xs px-2 rounded-full font-bold group-hover:cursor-pointer'>{numCartItems}</div>
+                        :<></>
+                    }
                     <CartIcon className={styles.cart+' group-hover:cursor-pointer'}/>
                 </div>
-                <div className='flex items-center border-transparent border-2 hover:cursor-pointer hover:border-2 hover:border-orange rounded-full'>
-                    <Image className='' src="/images/image-avatar.png" height={50} width={50}/>
+                <div className='relative flex items-center border-transparent border-2 hover:cursor-pointer hover:border-2 hover:border-orange rounded-full lg:w-12 lg:h-12 w-6 h-6'>
+                    <Image className='' src="/images/image-avatar.png" layout='fill'/>
                 </div>
             </div>
         </header>
