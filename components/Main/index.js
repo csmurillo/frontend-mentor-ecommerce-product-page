@@ -7,8 +7,10 @@ import styles from './Main.module.css';
 import DesktopSlider from '../Sliders/DesktopSlider';
 import MobileSlider from '../Sliders/MobileSlider';
 import ModalSlider from '../Sliders/ModalSlider';
+import { SliderContext } from '../../context/SliderContext';
 
 const Main = ()=>{
+    const {currentSlide,switchToImageIndex,onSwipeEnd,nextImage,prevImage}=SliderContext();
     const [modal,setModal]=useState(false);
     // get item info
     const [itemInfo,setItemInfo]=useState({
@@ -29,15 +31,19 @@ const Main = ()=>{
     return(
         <>
             {/* slider modal */}
-            {modal&&<ModalSlider closeModal={closeModal}/>}
+            {modal&&
+                <div className='hidden md:block'>
+                    <ModalSlider currentSlide={currentSlide} switchToImageIndex={switchToImageIndex} onSwipeEnd={onSwipeEnd} nextImage={nextImage} prevImage={prevImage} closeModal={closeModal}/>    
+                </div>
+            }
             <main className={styles.xlGrid+' flex-1 xl:pb-32 xl:pt-20 xl:px-10'}>
                 {/* <SlickSlider/> */}
                 <div className={styles.xlShoe}>
                     <div className='block md:hidden'>
-                        <MobileSlider type='mobile'/>
+                        <MobileSlider currentSlide={currentSlide} onSwipeEnd={onSwipeEnd} nextImage={nextImage} prevImage={prevImage} type='mobile'/>
                     </div>
                     <div className='hidden md:block'>
-                        <DesktopSlider openModal={openModal}/>
+                        <DesktopSlider currentSlide={currentSlide} switchToImageIndex={switchToImageIndex} onSwipeEnd={onSwipeEnd} nextImage={nextImage} prevImage={prevImage} openModal={openModal}/>
                     </div>
                 </div>
                 <div className={styles.xlShoeDetails+' flex items-center'}>

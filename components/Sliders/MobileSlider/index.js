@@ -1,40 +1,48 @@
 import Slider from "react-slick";
 import Image from "next/image";
 import React, { useRef,useState, useEffect } from 'react';
+// import { SliderContext } from "../../../context/SliderContext";
 
 
-const MobileSlider = ({type}) =>{
-        const [currentSlide,setCurrentSlide]=useState(0);
+const MobileSlider = ({type,currentSlide,onSwipeEnd,nextImage,prevImage}) =>{
+        // const [currentSlide,setCurrentSlide]=useState(0);
         const slickSliderRef = useRef();
-
-        const onSwipeEnd = (sliderPos)=>{
-            setCurrentSlide(sliderPos);
-            slickSliderRef.current.slickGoTo(sliderPos+1);
-        };
-        const nextImage=()=>{
-            if(currentSlide==3){
-                setCurrentSlide(0);
-            }
-            else{
-                setCurrentSlide(currentSlide+1);
-            }
-        };
-        const prevImage=()=>{
-            if(currentSlide==0){
-                setCurrentSlide(3);
-            }
-            else{
-                setCurrentSlide(currentSlide-1);
-            }
-        };
+        // const {currentSlide,onSwipeEnd,nextImage,prevImage}=SliderContext();
+        // const onSwipeEnd = (sliderPos)=>{
+        //     setCurrentSlide(sliderPos);
+        //     slickSliderRef.current.slickGoTo(sliderPos+1);
+        // };
+        // const nextImage=()=>{
+        //     if(currentSlide==3){
+        //         setCurrentSlide(0);
+        //     }
+        //     else{
+        //         setCurrentSlide(currentSlide+1);
+        //     }
+        // };
+        // const prevImage=()=>{
+        //     if(currentSlide==0){
+        //         setCurrentSlide(3);
+        //     }
+        //     else{
+        //         setCurrentSlide(currentSlide-1);
+        //     }
+        // };
         useEffect(()=>{
             slickSliderRef.current.slickGoTo(currentSlide);
         },[currentSlide]);
+        // const switchToImageIndex = ()=>{};
+        // const onSwipeEnd = ()=>{};
+        // const prevImage= ()=>{};
+        // const nextImage = ()=>{};
+        // useEffect(()=>{
+        //     console.log('mounted mobile slider');
+        // },[]);
 
         var settings = {
             dots: false,
             infinite: true,
-            speed: 400,
+            speed: 100,
             slidesToShow: 1,
             slidesToScroll: 1,
             prevArrow: <PrevArrow />,
@@ -64,7 +72,7 @@ const MobileSlider = ({type}) =>{
             <div>
                     <div>
                         <Slider ref={slickSliderRef} className="relative w-full" {...settings} 
-                                afterChange={(i)=>{onSwipeEnd(i);}}
+                                afterChange={(i)=>{onSwipeEnd(slickSliderRef,i);}}
                         >
                             <div className="border">
                                 <div className='relative w-full h-80 '>

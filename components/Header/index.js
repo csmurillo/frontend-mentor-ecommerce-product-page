@@ -6,29 +6,27 @@ import Cart from '../Cart';
 import MenuIcon from '../../public/images/icon-menu.svg';
 import CartIcon from '../../public/images/icon-cart.svg';
 import Logo from '../../public/images/logo.svg';
-// import cart from '/image/cart.svg'
 
 import react ,{ useState, useEffect, useRef } from 'react';
 
 const Header=()=> {
-    const [menu,setMenu]=useState(false);
-    const [cartModal,setCartModal]=useState(false);
+    // const [menu,setMenu]=useState(false);
+    // const [cartModal,setCartModal]=useState(false);
     const [numCartItems,setNumCartItems]=useState(null);
     const [cart,setCart]=useState(false);
-    const closeMenu = ()=>{
-        setMenu(false);
-    };
-    const openMenu = ()=>{
-        setMenu(true);
-        setCartModal(false);
-    };
+    // const closeMenu = ()=>{
+    //     setMenu(false);
+    // };
+    // const openMenu = ()=>{
+    //     setMenu(true);
+    //     setCartModal(false);
+    // };
     const toggleCartModal = ()=>{
         setCartModal(!cartModal);
     };
 
 
     useEffect(()=>{
-        
         var originalSetItem = localStorage.setItem; 
         localStorage.setItem = function () {
             const event = new Event('cartItemInserted');
@@ -40,7 +38,6 @@ const Header=()=> {
             let cartItems = 0;
             if(cart){
                 for(let i=0; i<cart.length;i++){
-                    // console.log(cart[i].itemInfo.quantity);
                     cartItems=parseInt(cartItems)+parseInt(cart[i].quantity);
                 }
             }
@@ -51,9 +48,6 @@ const Header=()=> {
         cartItemListener();
           
         document.addEventListener("cartItemInserted", cartItemListener);
-        // document.onclick=(e)=>{
-        //     console.log(e);
-        // };
     },[]);
 
   return (
