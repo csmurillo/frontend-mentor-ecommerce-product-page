@@ -23,7 +23,7 @@ const AddToCart = ({itemInfo})=>{
                     </div>
                     <div className='flex-1 flex justify-center xl:h-full'>
                         <input ref={inputRef} className='inline-block font-bold bg-lightGrayBlue border-none ml-4 text-lg focus:border-white'
-                                type='number' value={quantity} readOnly/>
+                                type='number' value={quantity} readOnly aria-label="Product Quanity"/>
                     </div>
                     <div className="flex justify-center items-center w-12">
                         <button type="button" className="font-bold  text-3xl text-[#FF7E1B] flex items-start overflow-hidden p-0 m-0 h-[20px] leading-[1rem] hover:text-opacity-70" onClick={()=>{addQuantity()}}>
