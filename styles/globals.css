@@ -13,7 +13,6 @@ html,body{
 .slick-prev:before,.slick-next:before{
     content:'';
 }
-
 .highlight:hover::before{
     content: '';
     border-bottom:5px solid orange;
@@ -21,7 +20,6 @@ html,body{
     position: absolute;
     bottom: -35px;
     width: 100%;
-    /* left: 35%; */
     cursor: pointer;
 }
 .thumbnailImageBorder{

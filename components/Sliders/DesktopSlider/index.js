@@ -19,7 +19,6 @@ const DesktopSlider = ({ openModal, currentSlide, switchToImageIndex, onSwipeEnd
             draggable:false
             };
          
-
           return (
             <div className="xl:w-[80%]">
                     <div className="mb-8">
