@@ -11,7 +11,7 @@ const Cart = ({cart}) =>{
 
     return (
         <div className="flex justify-center md:justify-end xl:-mr-24 xl:drop-shadow-2xl">
-            <div className="absolute bg-white rounded-3xl flex flex-col h-64 w-[23rem] xl:w-[23rem] z-[9999] mt-2 md:-mt-6 xl:-mt-4">
+            <div className="absolute bg-white rounded-3xl flex flex-col h-64 base:w-[95%] xs:w-[23rem] xl:w-[23rem] z-[9999] mt-2 md:-mt-6 xl:-mt-4">
                 <div className="flex items-center h-14 w-full pl-5 border-b-2">
                     <h1 className="font-kumbh font-bold text-base">Cart</h1>
                 </div>

@@ -49,7 +49,7 @@ const Header=()=> {
                 </div>
             </div>
             <div className='flex'>
-                <div className='relative flex items-center mr-8 group' onClick={toggleCartModal}>
+                <div className='relative flex items-center base:mr-2 xs:mr-5 group' onClick={toggleCartModal}>
                     {
                         numCartItems!=0?
                         <div className='absolute font-bold text-white text-xs bg-orange rounded-full px-2 -right-4 -top-2 lg:-right-3 lg:top-1 group-hover:cursor-pointer'>
