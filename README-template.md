@@ -30,7 +30,6 @@ Users should be able to:
 
 ![](./screenshot.png)
 
-
 ### Links
 
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
@@ -51,7 +50,6 @@ Users should be able to:
 ### What I learned
 
 Learned to modify Slick Slider Package to serve the needs of the slider used in the project Ecommerce Product Page. Also worked on creating a folder strucuture that is easy to understand.
-
 
 ## Author
 

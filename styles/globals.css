@@ -13,6 +13,7 @@ html,body{
 .slick-prev:before,.slick-next:before{
     content:'';
 }
+/* header items */
 .highlight:hover::before{
     content: '';
     border-bottom:5px solid orange;
@@ -22,9 +23,7 @@ html,body{
     width: 100%;
     cursor: pointer;
 }
-.thumbnailImageBorder{
-    border: 5px solid orange !important;
-}
+/* close icon header menu */
 .closeIconGray path{
     fill: hsl(223, 64%, 98%);
 }
