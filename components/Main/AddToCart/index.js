@@ -33,15 +33,9 @@ const AddToCart = ({itemInfo})=>{
                 </div>
             </div>
             <div className="xl:w-[55%]">
-                <button type='submit' className='w-full py-4 px-10 bg-[#FF7E1B] hover:bg-opacity-70 rounded-lg'>
-                    <div className="flex justify-center">
-                        <div className="mr-4">
-                            <Cart className={styles.addToCartIcon}/>
-                        </div>
-                        <div>
-                            <p className="font-bold text-white">Add to cart</p>
-                        </div>
-                    </div>
+                <button type='submit' className='w-full py-4 px-10 bg-[#FF7E1B] hover:bg-opacity-70 rounded-lg flex justify-center'>
+                    <Cart className={styles.addToCartIcon+' mr-2'}/>
+                    <span className="font-bold text-white">Add to cart</span>
                 </button>
             </div>
         </form>

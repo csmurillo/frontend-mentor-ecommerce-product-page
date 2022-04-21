@@ -7,12 +7,24 @@ html,body{
     overflow-x: hidden;
 }
 #__next{
-    height: 100%; width:100%;
 }
 
 .slick-prev:before,.slick-next:before{
     content:'';
 }
+/* input number remove arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-moz-color-swatch{ 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+    border: none;
+    border-color: transparent;
+}
+input:focus {outline:none!important;}
+
 /* header items */
 .highlight:hover::before{
     content: '';

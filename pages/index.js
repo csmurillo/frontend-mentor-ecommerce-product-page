@@ -24,7 +24,7 @@ export default function Home() {
       <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet"></link>
       </Head>
       {/* <Menu/> */}
-      <div className='md:px-40 h-full flex flex-col'>
+      <div className='md:px-40 h-full flex flex-col relative'>
         <Header/>
         <Main/>
       </div>

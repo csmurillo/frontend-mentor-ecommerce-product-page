@@ -43,12 +43,8 @@ const Cart = ({cart}) =>{
                             ))}
                             </div>
                             <div className="">
-                                <button className='w-full py-5 px-10 bg-[#FF7E1B] rounded-lg hover:opacity-70'>
-                                    <div className="flex justify-center">
-                                        <div>
-                                            <p className="text-base text-white font-bold">Checkout</p>
-                                        </div>
-                                    </div>
+                                <button className='w-full py-5 px-10 bg-[#FF7E1B] rounded-lg hover:opacity-70 flex justify-center'>
+                                    <span className="text-base text-white font-bold">Checkout</span>
                                 </button>
                             </div>
                     </div>

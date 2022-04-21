@@ -47,41 +47,41 @@ const ModalSlider = ({closeModal,currentSlide,switchToImageIndex,onSwipeEnd,next
 
           return (
             <div className={'absolute top-0 left-0 w-full h-full z-[9999] flex justify-center'}>
-                <div className='absolute w-full h-full xl:bg-black xl:opacity-80'></div>
-                <div className='w-[500px] h-96 mt-[8%]'>
+                <div className='absolute h-full w-full xl:bg-black xl:opacity-80'></div>
+                <div className='w-[550px] h-96 mt-[6%]'>
                     <div className='hidden xl:block'>
-                        <div className="w-100">
+                        <div className="w-100 ">
                             <div>
                                 <div className='relative flex justify-end hover:cursor-pointer'>
                                     <CloseIcon className={styles.closeIcon+' closeIconGray absolute -top-8 hover:cursor-pointer'} onClick={closeModal}/>
                                 </div>
-                                <Slider ref={slickSliderRef} className="relative w-full md:w-[100%]" {...settings} 
+                                <Slider ref={slickSliderRef} className="relative w-full" {...settings} 
                                         afterChange={(i)=>{onSwipeEnd(slickSliderRef,i);}}
                                 >
                                     <div>
-                                        <div className='relative w-full md:w-[100%] h-96 '>
-                                            <Image className="rounded-xl" src="/images/image-product-1.jpg" alt="Beige with white shoe being showcased with an orange background" layout="fill"/>
+                                        <div className='relative w-full md:w-[100%] h-[550px] '>
+                                            <Image className="rounded-2xl" src="/images/image-product-1.jpg" alt="Beige with white shoe being showcased with an orange background" layout="fill"/>
                                         </div>
                                     </div>
                                     <div>
-                                        <div className='relative w-full md:w-[100%] h-96 '>
-                                            <Image className="rounded-xl" src="/images/image-product-2.jpg" alt="Beige with white shoe being showcased with a branch for decoration and has an orange background" layout="fill"/>
+                                        <div className='relative w-full md:w-[100%] h-[550px] '>
+                                            <Image className="rounded-2xl" src="/images/image-product-2.jpg" alt="Beige with white shoe being showcased with a branch for decoration and has an orange background" layout="fill"/>
                                         </div>
                                     </div>
                                     <div>
-                                        <div className='relative w-full md:w-[100%] h-96 '>
-                                            <Image className="rounded-xl" src="/images/image-product-3.jpg" alt="Beige with white shoe being showcased with two rocks underneath for decoration and has an orange background" layout="fill"/>
+                                        <div className='relative w-full md:w-[100%] h-[550px] '>
+                                            <Image className="rounded-2xl" src="/images/image-product-3.jpg" alt="Beige with white shoe being showcased with two rocks underneath for decoration and has an orange background" layout="fill"/>
                                         </div>
                                     </div>
                                     <div>
-                                        <div className='relative w-full md:w-[100%] h-96 '>
-                                            <Image className="rounded-xl" src="/images/image-product-4.jpg" alt="Beige with white shoe being showcased with two rocks underneath for decoration, with the outer side of the shoe being completely shown to user and has an orange background" layout="fill"/>
+                                        <div className='relative w-full md:w-[100%] h-[550px] '>
+                                            <Image className="rounded-2xl" src="/images/image-product-4.jpg" alt="Beige with white shoe being showcased with two rocks underneath for decoration, with the outer side of the shoe being completely shown to user and has an orange background" layout="fill"/>
                                         </div>
                                     </div>
                                 </Slider>
                             </div>
                             <div>
-                                <div className="hidden md:inline-block relative w-[100%] p-5">
+                                <div className="hidden md:inline-block relative w-[100%] pt-8 px-10">
                                     <div className="flex w-full gap-4">
                                         <div className="w-[25%] group">
                                             <div className={"relative w-[100%] bg-white h-[88px] hover:cursor-pointer rounded-lg "+(currentSlide==0?'border-2 border-[#FF7E1B]':'')} onClick={()=>{switchToImageIndex(slickSliderRef,0)}}>

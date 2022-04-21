@@ -30,7 +30,7 @@ const Main = ()=>{
                     <ModalSlider currentSlide={currentSlide} switchToImageIndex={switchToImageIndex} onSwipeEnd={onSwipeEnd} nextImage={nextImage} prevImage={prevImage} closeModal={closeModal}/>    
                 </div>
             }
-            <main className={styles.xlGrid+' flex-1 xl:pb-32 xl:pt-20 xl:px-10'}>
+            <main className={styles.xlGrid+' flex-1 xl:pb-32 xl:pt-[90px] xl:px-12'}>
                 <div className={styles.xlShoe}>
                     <div className='block md:hidden'>
                         <MobileSlider currentSlide={currentSlide} onSwipeEnd={onSwipeEnd} nextImage={nextImage} prevImage={prevImage} type='mobile'/>
