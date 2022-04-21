@@ -60,7 +60,7 @@ const Header=()=> {
                     <CartIcon className=' group-hover:cursor-pointer'/>
                 </div>
                 <div className='relative flex items-center rounded-full w-6 h-6 lg:w-12 lg:h-12 border-transparent border-2 hover:border-2 hover:border-orange hover:cursor-pointer'>
-                    <Image className='' src="/images/image-avatar.png" layout='fill'/>
+                    <Image src="/images/image-avatar.png" alt='image of current user profile' layout='fill'/>
                 </div>
             </div>
         </header>

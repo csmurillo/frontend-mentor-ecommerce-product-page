@@ -8,6 +8,7 @@ const Cart = ({cart}) =>{
 
     const {removeFromCart}=CartManager();
     const {items}=CartContext(cart);
+
     return (
         <div className="flex justify-center md:justify-end xl:-mr-24 xl:drop-shadow-2xl">
             <div className="absolute bg-white rounded-3xl flex flex-col h-64 w-[23rem] xl:w-[23rem] z-[9999] mt-2 md:-mt-6 xl:-mt-4">
@@ -19,10 +20,10 @@ const Cart = ({cart}) =>{
                         items.length>0&&
                         <div className="flex flex-col">
                             <div className="mb-6">
-                            {items&&items.map(item=>(
-                                <div className="flex">
+                            {items&&items.map((item,index)=>(
+                                <div className="flex" key={index}>
                                     <div className="mr-3">
-                                        <Image className="rounded" src="/images/image-product-1-thumbnail.jpg" width={50} height={50} />
+                                        <Image className="rounded" src="/images/image-product-1-thumbnail.jpg" alt="Beige with white shoe being showcased with an orange background" width={50} height={50} />
                                     </div>
                                     <div className="flex-1">
                                         <div>
