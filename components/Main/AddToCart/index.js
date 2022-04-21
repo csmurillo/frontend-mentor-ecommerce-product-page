@@ -2,7 +2,6 @@ import react, {useState, useEffect,useRef} from "react";
 import Cart from '../../../public/images/icon-cart.svg';
 
 import styles from './AddToCart.module.css';
-// import AddToCartManager from "./AddToCartManager";
 import CartManager from "../../../utils/CartManager";
 import { AddToCartContext } from "../../../context/Main/AddToCart/Context/AddToCartContext";
 
