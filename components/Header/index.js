@@ -1,63 +1,31 @@
 import React from 'react'
 import Image from 'next/image'
-import Menu from '../Menu';
-import Cart from '../Cart';
+import Menu from './Menu';
+import Cart from './Cart';
 
 import MenuIcon from '../../public/images/icon-menu.svg';
 import CartIcon from '../../public/images/icon-cart.svg';
 import Logo from '../../public/images/logo.svg';
 
-import react ,{ useState, useEffect, useRef } from 'react';
+import { CartModalContext} from '../../context/Header/Context/CartModalContext';
+import { MenuContext } from '../../context/Header/Context/MenuContext';
+import { CartContext } from '../../context/Header/Context/CartContext';
 
 const Header=()=> {
-    // const [menu,setMenu]=useState(false);
-    // const [cartModal,setCartModal]=useState(false);
-    const [numCartItems,setNumCartItems]=useState(null);
-    const [cart,setCart]=useState(false);
-    // const closeMenu = ()=>{
-    //     setMenu(false);
-    // };
-    // const openMenu = ()=>{
-    //     setMenu(true);
-    //     setCartModal(false);
-    // };
-    const toggleCartModal = ()=>{
-        setCartModal(!cartModal);
-    };
 
+    const {cartModal,setCartModal,toggleCartModal}=CartModalContext();
+    const {menu,closeMenu,openMenu}=MenuContext(setCartModal);
 
-    useEffect(()=>{
-        var originalSetItem = localStorage.setItem; 
-        localStorage.setItem = function () {
-            const event = new Event('cartItemInserted');
-            originalSetItem.apply(this, arguments);
-            document.dispatchEvent(event);
-        }
-        const cartItemListener = ()=> {
-            const cart=JSON.parse(localStorage.getItem('cart'));
-            let cartItems = 0;
-            if(cart){
-                for(let i=0; i<cart.length;i++){
-                    cartItems=parseInt(cartItems)+parseInt(cart[i].quantity);
-                }
-            }
-            setNumCartItems(cartItems);
-            setCart(cart);
-        };
-
-        cartItemListener();
-          
-        document.addEventListener("cartItemInserted", cartItemListener);
-    },[]);
+    const {numCartItems,cart}=CartContext();
 
   return (
       <>
-        <header className='flex xs:py-7 justify-between lg:border-b-2 md:px-0 py-5 px-6 xs:mx-0'>
+        <header className='flex justify-between py-5 px-6 xs:py-7 md:px-0 lg:border-b-2'>
             <div className='flex items-center'>
-                <div className='mr-3 xl:hidden mt-1'>
+                <div className='mr-3 mt-1 xl:hidden'>
                     <MenuIcon className='hover:cursor-pointer' onClick={openMenu}  />
                 </div>
-                <div className=' md:mr-10'>
+                <div className='md:mr-10'>
                     <Logo />
                 </div>
                 <div className='hidden xl:block'>
@@ -84,12 +52,14 @@ const Header=()=> {
                 <div className='relative flex items-center mr-8 group' onClick={toggleCartModal}>
                     {
                         numCartItems!=0?
-                        <div className='absolute lg:-right-3 lg:top-1 -right-4 -top-2 bg-orange text-white text-xs px-2 rounded-full font-bold group-hover:cursor-pointer'>{numCartItems}</div>
+                        <div className='absolute font-bold text-white text-xs bg-orange rounded-full px-2 -right-4 -top-2 lg:-right-3 lg:top-1 group-hover:cursor-pointer'>
+                            {numCartItems}
+                        </div>
                         :<></>
                     }
                     <CartIcon className=' group-hover:cursor-pointer'/>
                 </div>
-                <div className='relative flex items-center border-transparent border-2 hover:cursor-pointer hover:border-2 hover:border-orange rounded-full lg:w-12 lg:h-12 w-6 h-6'>
+                <div className='relative flex items-center rounded-full w-6 h-6 lg:w-12 lg:h-12 border-transparent border-2 hover:border-2 hover:border-orange hover:cursor-pointer'>
                     <Image className='' src="/images/image-avatar.png" layout='fill'/>
                 </div>
             </div>

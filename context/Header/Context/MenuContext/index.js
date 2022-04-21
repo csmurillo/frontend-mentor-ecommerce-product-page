@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const MenuContext = ()=>{
+const MenuContext = (setCartModal)=>{
     const [menu,setMenu]=useState(false);
     const closeMenu = ()=>{
         setMenu(false);
@@ -9,7 +9,7 @@ const MenuContext = ()=>{
         setMenu(true);
         setCartModal(false);
     };
-    return {};
+    return {menu,closeMenu,openMenu};
 };
 
 export {MenuContext};

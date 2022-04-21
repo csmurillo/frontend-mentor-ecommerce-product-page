@@ -1,27 +1,18 @@
 import { useState,useEffect } from "react";
 import Image from "next/image";
-import TrashIcon from '../../public/images/icon-delete.svg';
-import AddToCartManager from "../AddToCart/AddToCartManager";
+import TrashIcon from '../../../public/images/icon-delete.svg';
+import CartManager from "../../../utils/CartManager";
+import { CartContext } from "../../../context/Header/Cart/Context/CartContext";
 
 const Cart = ({cart}) =>{
 
-    const {removeFromCart}=AddToCartManager();
-    const [items,setItems]=useState([]);
-    useEffect(()=>{
-        if(JSON.parse(localStorage.getItem('cart'))){
-            setItems(JSON.parse(localStorage.getItem('cart')));
-        }
-    },[]);
-    useEffect(()=>{
-        console.log('cart updated');
-        setItems(cart);
-    },[cart]);
-
+    const {removeFromCart}=CartManager();
+    const {items}=CartContext(cart);
     return (
         <div className="flex justify-center md:justify-end xl:-mr-24 xl:drop-shadow-2xl">
-            <div className="absolute flex flex-col mt-2 md:-mt-6 h-64 w-[23rem] xl:w-[23rem] z-[9999] bg-white rounded-3xl xl:-mt-4">
-                <div className="h-14 w-full flex items-center pl-5 border-b-2">
-                    <h1 className="text-base font-bold font-kumbh">Cart</h1>
+            <div className="absolute bg-white rounded-3xl flex flex-col h-64 w-[23rem] xl:w-[23rem] z-[9999] mt-2 md:-mt-6 xl:-mt-4">
+                <div className="flex items-center h-14 w-full pl-5 border-b-2">
+                    <h1 className="font-kumbh font-bold text-base">Cart</h1>
                 </div>
                 <div className="p-6 flex-1">
                     {
@@ -36,8 +27,11 @@ const Cart = ({cart}) =>{
                                     <div className="flex-1">
                                         <div>
                                             <div>
-                                                <p className="text-base font-kumbh text-darkGrayBlue">{item.name}</p>
-                                                <p className="text-base text-darkGrayBlue">${item.price}.00 x {item.quantity} <span className="font-bold text-black">${item.price*item.quantity}.00</span></p>
+                                                <p className="font-kumbh text-base text-darkGrayBlue">{item.name}</p>
+                                                <p className="text-base text-darkGrayBlue">
+                                                    ${item.price}.00 x {item.quantity} 
+                                                    <span className="font-bold text-black">${item.price*item.quantity}.00</span>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +55,7 @@ const Cart = ({cart}) =>{
                     {
                         items.length<=0&&<div className="relative h-[100%]">
                         <div className="h-full flex justify-center items-center">
-                            <p className="font-bold font-kumbh text-darkGrayBlue text-sm">Your Cart is Empty</p>
+                            <p className="font-kumbh font-bold text-darkGrayBlue text-sm">Your Cart is Empty</p>
                         </div>
                     </div>
                     }

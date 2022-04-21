@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 
-const ModalContext = ()=>{
+const CartModalContext = ()=>{
     const [cartModal,setCartModal]=useState(false);
 
     const toggleCartModal = ()=>{
         setCartModal(!cartModal);
     };
-    return {};
+    
+    return {cartModal,setCartModal,toggleCartModal};
 };
 
-export {ModalContext};
+export {CartModalContext};

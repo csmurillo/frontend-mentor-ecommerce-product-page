@@ -1,6 +1,5 @@
 
-import CloseIcon from '../../public/images/icon-close.svg';
-import styles from './Menu.module.css';
+import CloseIcon from '../../../public/images/icon-close.svg';
 
 const Menu = ({closeMenu})=>{
 
@@ -10,7 +9,7 @@ const Menu = ({closeMenu})=>{
             <div className="absolute min-h-full w-72 bg-white z-[99999]">
                 <div className='p-7'>
                     <div className='mb-14'>
-                        <CloseIcon className={styles.closeIcon+' hover:cursor-pointer'} onClick={closeMenu}/>
+                        <CloseIcon className='hover:cursor-pointer' onClick={closeMenu}/>
                     </div>
                     <ul className='text-black font-bold font-kumbh text-xl'>
                         <li className='mb-4 hover:cursor-pointer'>Collections</li>

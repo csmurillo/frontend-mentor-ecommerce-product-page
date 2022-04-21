@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import Header from '../components/Header'
 import Main from '../components/Main'
-// import Menu from '../components/Menu'
-import Cart from '../components/Cart'
+
 
 export default function Home() {
   return (

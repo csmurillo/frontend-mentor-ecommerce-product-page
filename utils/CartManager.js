@@ -1,6 +1,6 @@
 import react from "react";
 
-const AddToCartManager = ()=>{
+const CartManager = ()=>{
 
     const addToCart = (name, price, quantity)=>{
         const cart=JSON.parse(localStorage.getItem('cart'));
@@ -29,26 +29,18 @@ const AddToCartManager = ()=>{
         }
     };
     const removeFromCart = (name)=>{
-        console.log(name);
         const cart=JSON.parse(localStorage.getItem('cart'));
-        console.log(cart);
-        console.log('!!!!!!!!!!!!!!!!!!!!');
         const newCart=cart.filter(item=>{
-            console.log(item.name+'and'+name);
             if(item.name!=name){
-                console.log(item.name+'and'+name);
                 return item;
             }
             return null;
         });
-        console.log(cart);
         localStorage.setItem('cart',JSON.stringify(newCart));
     };
-    return {
-        addToCart,removeFromCart
-    };
+    return {addToCart,removeFromCart};
 };
-export default AddToCartManager;
+export default CartManager;
 
 
 

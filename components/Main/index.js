@@ -1,6 +1,4 @@
-// import SlickSlider from '../Slider';
-import Image from 'next/image'
-import AddToCart from '../AddToCart';
+import AddToCart from './AddToCart';
 import react, { useState } from 'react';
 
 import styles from './Main.module.css';
@@ -8,10 +6,13 @@ import DesktopSlider from '../Sliders/DesktopSlider';
 import MobileSlider from '../Sliders/MobileSlider';
 import ModalSlider from '../Sliders/ModalSlider';
 import { SliderContext } from '../../context/SliderContext';
+import { SliderModalContext } from '../../context/SliderModalContext';
 
 const Main = ()=>{
+
     const {currentSlide,switchToImageIndex,onSwipeEnd,nextImage,prevImage}=SliderContext();
-    const [modal,setModal]=useState(false);
+    const {modal, openModal, closeModal}=SliderModalContext();
+    
     // get item info
     const [itemInfo,setItemInfo]=useState({
         name:'Fall Limited Edition Sneakers',
@@ -21,13 +22,6 @@ const Main = ()=>{
     });
     const {name,description,originalPrice,price}=itemInfo;
     
-    const openModal = ()=>{
-        setModal(true);
-    };
-    const closeModal = ()=>{
-        setModal(false);
-    };
-
     return(
         <>
             {/* slider modal */}
@@ -37,7 +31,6 @@ const Main = ()=>{
                 </div>
             }
             <main className={styles.xlGrid+' flex-1 xl:pb-32 xl:pt-20 xl:px-10'}>
-                {/* <SlickSlider/> */}
                 <div className={styles.xlShoe}>
                     <div className='block md:hidden'>
                         <MobileSlider currentSlide={currentSlide} onSwipeEnd={onSwipeEnd} nextImage={nextImage} prevImage={prevImage} type='mobile'/>
@@ -47,29 +40,29 @@ const Main = ()=>{
                     </div>
                 </div>
                 <div className={styles.xlShoeDetails+' flex items-center'}>
-                    <section className='xl:py-3 xl:px-5 pb-20 pt-6 px-6'>
-                        <div className='xs:mb-6 mb-4'>
-                            <h2 className='text-sm tracking-wide font-kumbh font-bold uppercase text-[#FF7E1B] opacity-80 leading-4'>Sneaker Company</h2>
+                    <section className='pb-20 pt-6 px-6 xl:py-3 xl:px-5'>
+                        <div className='mb-4 xs:mb-6'>
+                            <h2 className='font-kumbh font-bold uppercase tracking-wide text-[#FF7E1B] text-sm opacity-80 leading-4'>Sneaker Company</h2>
                         </div>
                         <div className='mb-5'>
-                            <h1 className='md:text-5xl text-3xl font-kumbh font-bold'>{name}</h1>
+                            <h1 className='font-kumbh font-bold text-3xl md:text-5xl'>{name}</h1>
                         </div>
                         <div className='mb-5'>
-                            <p className='text-darkGrayBlue leading-7 text-base	font-kumbh font-normal'>
+                            <p className='font-kumbh font-normal text-base text-darkGrayBlue leading-7'>
                                 {description}
                             </p>
                         </div>
                         <div className='flex justify-between mb-5 xl:block'>
                             <div className='flex'>
                                 <div className='mr-5'>
-                                    <p className='text-3xl font-kumbh font-bold'>${price}.00</p>
+                                    <p className='font-kumbh font-bold text-3xl'>${price}.00</p>
                                 </div>
                                 <div className='flex justify-end items-center'>
-                                    <p className='py-[1px] px-2 bg-paleOrange rounded-lg text-base text-orange opacity-80 font-bold font-kumbh'>50%</p>
+                                    <p className='font-kumbh font-bold text-base text-[#FF7E1B] bg-paleOrange rounded-lg opacity-80 py-[1px] px-2'>50%</p>
                                 </div>
                             </div>
                             <div className='flex justify-end items-center xl:justify-start'>
-                                <p className='line-through text-grayBlue font-bold text-base'>
+                                <p className='font-bold text-base line-through text-grayBlue'>
                                     ${originalPrice}.00
                                 </p>
                             </div>
